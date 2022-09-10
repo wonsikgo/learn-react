@@ -1,14 +1,8 @@
-import React from "react";
 import "./app.css";
+import Habit from "./components/habit";
 
 function App() {
-  const name = "wonsik";
-  return (
-    <React.Fragment>
-      <h1>Hello :) {name}</h1>
-      <h1>Hello</h1>
-    </React.Fragment>
-  );
+  return <Habit />;
 }
 
 export default App;

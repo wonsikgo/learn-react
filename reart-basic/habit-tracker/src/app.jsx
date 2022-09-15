@@ -6,9 +6,9 @@ import Navbar from "./components/navbar";
 class app extends Component {
   state = {
     habits: [
-      { id: 1, name: "Reading", count: "0" },
-      { id: 2, name: "Running", count: "0" },
-      { id: 3, name: "Coding", count: "0" },
+      { id: 1, name: "Reading", count: 0 },
+      { id: 2, name: "Running", count: 0 },
+      { id: 3, name: "Coding", count: 0 },
     ],
   };
 
@@ -31,6 +31,10 @@ class app extends Component {
     const habits = this.state.habits.filter((item) => item.id !== habit.id);
     this.setState({ habits });
   };
+  handleAdd = (name) => {
+    const habits = [...this.state.habits, { id: Date.now(), name, count: 0 }];
+    this.setState({ habits });
+  };
 
   render() {
     return (
@@ -43,6 +47,7 @@ class app extends Component {
           onIncreament={this.handleIncreament}
           onDecreament={this.handleDecreamemt}
           onDelete={this.handleDelete}
+          onAdd={this.handleAdd}
         />
       </>
     );
